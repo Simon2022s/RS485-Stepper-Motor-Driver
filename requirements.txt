@@ -1,0 +1,19 @@
+# Core dependencies
+PyQt5>=5.15.0
+pyserial>=3.5
+
+# Development dependencies (optional)
+pytest>=7.0.0
+pytest-cov>=4.0.0
+black>=22.0.0
+flake8>=5.0.0
+mypy>=0.991
+pylint>=2.15.0
+
+# Security scanning (optional)
+bandit>=1.7.0
+safety>=2.0.0
+
+# Building (optional)
+pyinstaller>=5.0.0
+upx-binary>=4.0.0
