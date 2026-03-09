@@ -1,8 +1,11 @@
 # RS485 Stepper Motor Driver
+{:target="_blank" rel="noopener noreferrer"}
+*[Adam Power]: https://www.adampower.de/nema11-rs485-stepper-motor-driver
+*[AR28 closed-loop stepper motor driver]: https://www.adampower.de/nema11-rs485-stepper-motor-driver
 
 [![Python CI](https://github.com/Simon2022s/RS485-Stepper-Motor-Driver/actions/workflows/python-ci.yml/badge.svg)](https://github.com/Simon2022s/RS485-Stepper-Motor-Driver/actions/workflows/python-ci.yml)
 
-[AR28 closed-loop stepper motor driver](https://www.adampower.de/nema11-rs485-stepper-motor-driver){:target="_blank" rel="noopener noreferrer"}
+A PyQt5-based RS485 stepper motor driver control software with Modbus RTU protocol support. Originally designed for the [AR28 closed-loop stepper motor driver], compatible with similar Modbus RTU devices.
 
 ![AR28 Driver](bruce_bg.jpg)
 
@@ -222,7 +225,7 @@ MIT License
 
 - PyQt5 - GUI framework
 - pySerial - Serial communication library
-- [Adam Power](https://www.adampower.de/nema11-rs485-stepper-motor-driver){:target="_blank" rel="noopener noreferrer"} - AR28 stepper motor driver reference design
+- [Adam Power] - AR28 stepper motor driver reference design
 
 ---
 
