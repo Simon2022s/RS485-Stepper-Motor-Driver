@@ -181,6 +181,7 @@ MIT License
 - PyQt5 - GUI 框架
 - pySerial - 串口通信库
 - 步进电机驱动器制造商
+- https://www.adampower.de/nema11-rs485-stepper-motor-driver
 
 ---
 
