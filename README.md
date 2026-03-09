@@ -2,36 +2,36 @@
 
 [![Python CI](https://github.com/Simon2022s/RS485-Stepper-Motor-Driver/actions/workflows/python-ci.yml/badge.svg)](https://github.com/Simon2022s/RS485-Stepper-Motor-Driver/actions/workflows/python-ci.yml)
 
-基于 PyQt5 的 RS485 步进电机驱动控制软件，支持 Modbus RTU 协议通信。
+A PyQt5-based RS485 stepper motor driver control software with Modbus RTU protocol support.
 
 ![AR28 Driver](bruce_bg.jpg)
 
-## 🚀 功能特性
+## 🚀 Features
 
-- **串口通信**: 支持 RS485 串口通信，自动检测可用串口
-- **电机控制**: 速度、加速度、减速度、位移控制
-- **参数设置**: 电流、PPR（每转脉冲数）、方向设置
-- **实时监控**: 速度、位置、电流实时查询
-- **运动模式**: 连续运动、增量位移、绝对位移
-- **数据记录**: 支持命令发送和接收日志记录
-- **美观界面**: 李小龙主题 UI 设计
+- **Serial Communication**: RS485 serial communication with automatic port detection
+- **Motor Control**: Speed, acceleration, deceleration, and position control
+- **Parameter Settings**: Current, PPR (pulses per revolution), and direction settings
+- **Real-time Monitoring**: Real-time query of speed, position, and current
+- **Motion Modes**: Continuous motion, incremental positioning, and absolute positioning
+- **Data Logging**: Command sending and receiving log support
+- **Beautiful UI**: Bruce Lee themed UI design
 
-## 📋 系统要求
+## 📋 System Requirements
 
 - Python 3.8+
 - Windows / Linux / macOS
-- RS485 转 USB 适配器
+- RS485 to USB adapter
 
-## 🔧 安装
+## 🔧 Installation
 
-### 1. 克隆仓库
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Simon2022s/RS485-Stepper-Motor-Driver.git
 cd RS485-Stepper-Motor-Driver
 ```
 
-### 2. 创建虚拟环境（推荐）
+### 2. Create Virtual Environment (Recommended)
 
 ```bash
 python -m venv venv
@@ -43,146 +43,187 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-### 3. 安装依赖
+### 3. Install Dependencies
+
+**Method A: Using Launcher with Auto-Installation (Recommended)**
+
+Windows users can simply double-click:
+```
+start.bat
+```
+
+Or use the Python launcher:
+```bash
+python run.py
+```
+The launcher will automatically check and install missing dependencies.
+
+**Method B: Manual Installation**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 🎮 使用方法
+Or install only core dependencies:
+```bash
+pip install PyQt5>=5.15.0 pyserial>=3.5
+```
 
-### 运行程序
+## 🎮 Usage
 
+### Run the Program
+
+**Method 1: Using Launcher (Auto-check Dependencies)**
+```bash
+# Windows
+start.bat
+
+# Or
+python run.py
+```
+
+**Method 2: Direct Run**
 ```bash
 python BruceLee.py
 ```
 
-### 基本操作
+**Note**: If running `python BruceLee.py` shows missing PyQt5 or pyserial errors, please install dependencies first:
+```bash
+pip install PyQt5 pyserial
+```
 
-1. **连接串口**: 点击 "Serial Setup" 配置串口参数，然后点击 "Open"
-2. **设置电机 ID**: 在 Motor ID 输入框输入电机地址（默认 1）
-3. **设置参数**: 
-   - 速度 (Speed): 设置目标速度（脉冲/秒）
-   - 加速度 (Acceleration): 设置加速度
-   - 减速度 (Deceleration): 设置减速度
-4. **控制电机**:
-   - Enable: 使能电机
-   - ▶▶: 正向连续运动
-   - ◀◀: 反向连续运动
-   - ||: 暂停
-   - Disable: 禁用电机
+### Basic Operations
 
-### 高级功能
+1. **Connect Serial Port**: Click "Serial Setup" to configure port parameters, then click "Open"
+2. **Set Motor ID**: Enter motor address in the Motor ID input box (default: 1)
+3. **Set Parameters**: 
+   - Speed: Set target speed (pulses/second)
+   - Acceleration: Set acceleration value
+   - Deceleration: Set deceleration value
+4. **Control Motor**:
+   - Enable: Enable the motor
+   - ▶▶: Forward continuous motion
+   - ◀◀: Reverse continuous motion
+   - ||: Pause
+   - Disable: Disable the motor
 
-- **自定义命令**: 在 Hex Command 区域输入 Modbus 命令直接发送
-- **查询功能**: 使用 🔍 按钮查询当前参数值
-- **参数保存**: 点击 Save 将参数保存到电机 EEPROM
+### Advanced Features
 
-## 📁 项目结构
+- **Custom Commands**: Enter Modbus commands directly in the Hex Command area
+- **Query Function**: Use 🔍 button to query current parameter values
+- **Save Parameters**: Click Save to store parameters to motor EEPROM
+
+## 📁 Project Structure
 
 ```
 RS485-Stepper-Motor-Driver/
-├── BruceLee.py              # 主程序入口
-├── longgeforeverUI.py       # 主界面 UI
-├── rsNew.py                 # 串口设置对话框 UI
-├── system.py                # 系统设置模块
-├── sendRes.py               # 串口通信线程
-├── crc.py                   # CRC16 校验
-├── readIni.py               # 配置文件读取
-├── public.py                # 全局变量
-├── log.py                   # 日志模块
-├── system.ini               # 配置文件
-├── bruce_bg.jpg             # 背景图片
-├── logo.ico                 # 程序图标
-├── wu.ico                   # 窗口图标
-├── requirements.txt         # 依赖列表
-├── CODE_REVIEW.md           # 代码审核报告
-└── optimized_example.py     # 优化示例代码
+├── BruceLee.py              # Main program entry
+├── run.py                   # Auto-install dependencies and launch
+├── start.bat                # Windows one-click launcher
+├── longgeforeverUI.py       # Main UI interface
+├── rsNew.py                 # Serial port settings dialog UI
+├── system.py                # System settings module
+├── sendRes.py               # Serial communication thread
+├── crc.py                   # CRC16 checksum
+├── readIni.py               # Configuration file reader
+├── public.py                # Global variables
+├── log.py                   # Logging module
+├── system.ini               # Configuration file
+├── bruce_bg.jpg             # Background image
+├── logo.ico                 # Application icon
+├── wu.ico                   # Window icon
+├── requirements.txt         # Dependency list
+├── setup.cfg                # pytest configuration
+├── CODE_REVIEW.md           # Code review report
+├── CI_FIXES.md              # CI fixes record
+├── optimized_example.py     # Optimized code example
+└── tests/                   # Unit test directory
+    ├── __init__.py
+    └── test_crc.py
 ```
 
-## 🔌 通信协议
+## 🔌 Communication Protocol
 
-本软件使用 **Modbus RTU** 协议与电机驱动器通信。
+This software uses **Modbus RTU** protocol to communicate with motor drivers.
 
-### 常用寄存器
+### Common Registers
 
-| 寄存器地址 | 功能 | 说明 |
-|-----------|------|------|
-| 0x0000 | 电流 | 读取/设置电流 |
-| 0x0001 | PPR | 每转脉冲数 |
-| 0x0003 | 待机电流 | 待机电流百分比 |
-| 0x001A | 峰值电流 | 峰值电流百分比 |
-| 0x0040 | 速度低位 | 速度值低 16 位 |
-| 0x0041 | 速度高位 | 速度值高 16 位 |
-| 0x0042 | 加速度低位 | 加速度低 16 位 |
-| 0x0043 | 加速度高位 | 加速度高 16 位 |
-| 0x0044 | 位移低位 | 位移值低 16 位 |
-| 0x0045 | 位移高位 | 位移值高 16 位 |
-| 0x0046 | 控制模式 | 启动/停止/方向控制 |
-| 0x0048 | 位置模式 | 增量/绝对模式 |
+| Register Address | Function | Description |
+|-----------------|----------|-------------|
+| 0x0000 | Current | Read/Set current |
+| 0x0001 | PPR | Pulses per revolution |
+| 0x0003 | Standby Current | Standby current percentage |
+| 0x001A | Peak Current | Peak current percentage |
+| 0x0040 | Speed Low | Speed value low 16 bits |
+| 0x0041 | Speed High | Speed value high 16 bits |
+| 0x0042 | Acceleration Low | Acceleration low 16 bits |
+| 0x0043 | Acceleration High | Acceleration high 16 bits |
+| 0x0044 | Position Low | Position value low 16 bits |
+| 0x0045 | Position High | Position value high 16 bits |
+| 0x0046 | Control Mode | Start/Stop/Direction control |
+| 0x0048 | Position Mode | Incremental/Absolute mode |
 
-### CRC 校验
+### CRC Checksum
 
-使用 Modbus RTU 标准的 CRC16 校验算法。
+Uses standard Modbus RTU CRC16 checksum algorithm.
 
-## 🛠️ 开发
+## 🛠️ Development
 
-### 代码规范
+### Code Standards
 
-- 遵循 PEP 8 代码风格
-- 使用类型注解
-- 编写文档字符串
+- Follow PEP 8 code style
+- Use type annotations
+- Write docstrings
 
-### 运行测试
+### Run Tests
 
 ```bash
 pytest
 ```
 
-### 代码检查
+### Code Checking
 
 ```bash
-# 代码风格检查
+# Code style check
 flake8 .
 
-# 类型检查
+# Type check
 mypy .
 
-# 安全检查
+# Security check
 bandit -r .
 ```
 
-## 📦 打包
+## 📦 Packaging
 
-使用 PyInstaller 打包为可执行文件：
+Package as executable using PyInstaller:
 
 ```bash
 pyinstaller --onefile --windowed --icon=logo.ico BruceLee.py
 ```
 
-## 📝 更新日志
+## 📝 Changelog
 
 ### v1.0.0 (2026-03-09)
-- ✨ 初始版本发布
-- 🎨 李小龙主题 UI
-- 🔧 支持 AR28 驱动器
-- 📊 实时参数查询
+- ✨ Initial release
+- 🎨 Bruce Lee themed UI
+- 🔧 AR28 driver support
+- 📊 Real-time parameter query
 
-## 🤝 贡献
+## 🤝 Contributing
 
-欢迎提交 Issue 和 Pull Request！
+Issues and Pull Requests are welcome!
 
-## 📄 许可证
+## 📄 License
 
 MIT License
 
-## 🙏 致谢
+## 🙏 Acknowledgments
 
-- PyQt5 - GUI 框架
-- pySerial - 串口通信库
-- 步进电机驱动器制造商
-- https://www.adampower.de/nema11-rs485-stepper-motor-driver
+- PyQt5 - GUI framework
+- pySerial - Serial communication library
+- Stepper motor driver manufacturers
 
 ---
 
-**注意**: 本软件仅供学习和测试使用，工业环境使用前请充分测试。
+**Note**: This software is for learning and testing purposes only. Please test thoroughly before using in industrial environments.
